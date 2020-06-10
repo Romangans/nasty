@@ -1,0 +1,118 @@
+body {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.pading-site {
+  padding: 0 100px;
+}
+
+.first {
+  padding-top: 50px;
+  height: 675px;
+  background-image: url(imgweb/bgup.png),
+    url(imgweb/donutmain.png);
+  ;
+  background-size: 100%, 32%;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 0% 0%, 100% 135%;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 120px;
+}
+
+.menu {
+  font-size: 35px;
+  line-height: 74px;
+  color: #5E0386;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+}
+.menu:hover{
+  color: #FEFEFE;
+}
+
+
+
+.h1 {
+  display: block;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 117px;
+  text-transform: uppercase;
+  color: #5E0386;
+  margin-bottom: 45px;
+}
+
+.text {
+  display: block;
+  width: 976px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 35px;
+  line-height: 48px;
+  color: #5E0386;
+}
+
+
+
+.second {
+  background-image: url(imgweb/donutscreen.png),
+    url(imgweb/cloud.png);
+  background-repeat: no-repeat;
+  background-size: 15%, 58%;
+  background-position: 0% 50%, 0% 67%;
+}
+
+.about-width {
+  margin-bottom: 90px;
+}
+
+
+.screen {
+  display: flex;
+  justify-content: space-around;
+}
+
+.screen-img {
+  display: block;
+  width: 26%;
+}
+
+.us {
+  margin-top: 90px;
+  height: 1200px;
+  background-image: url(imgweb/girls.png);
+}
+
+.game-link {
+  margin-top: 130px;
+  display: block;
+  width: 374px;
+  height: 95px;
+  background: #EA7EB0;
+  border-radius: 100px;
+  font-family: 'roboto';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 90px;
+  color: #FEFEFE;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.game-link:hover{
+  background-color: #FEFEFE;
+  border: 1px solid #EA7EB0;
+  color: #EA7EB0;
+}
