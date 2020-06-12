@@ -1,0 +1,38 @@
+body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.pading-site {
+  padding: 0 100px;
+}
+.first {
+  padding-top: 5px;
+  height: 240px;
+  background-image: url(imgweb/bgup.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu {
+  font-size: 30px;
+  line-height: 74px;
+  color: #5E0386;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+}
+.menu:hover{
+  color: #FEFEFE;
+}
+
+#defaultCanvas0{
+  margin: 20px 33%;
+}
