@@ -151,31 +151,13 @@ var flappy_bird = {
     
 
     this.y = height/2 + map( sin(frameCount*0.1),0,1,-2,2 );
-	/*
-    if(this.kinematicAnim > 40) {
-      this.kinematicAnim = 0;
-    }
-    
-    this.kinematicAnim++;
-    
-    if(this.kinematicAnim>20) {
-      this.y += 0.2;
-    }
-    else {
-      this.y -= 0.2;
-    }*/
-
-    
+	
     push();
       translate(this.x,this.y);
       image(sprite_flappy,0,0, sprite_flappy.width*1.5,sprite_flappy.height*3, 0,0 ,sprite_flappy.width/2,sprite_flappy.height*3);
     pop();
   }
 }
-
-//var font = new Font();
-
-//var audio = new Audio('data/Assets/sound/sfx_point.wav');
 
 function setup() {
   if(mobile()) {
@@ -190,7 +172,6 @@ function setup() {
   ellipseMode(CENTER);
   textAlign(CENTER,CENTER);
   
-  //disableScroll();
   
   noSmooth();
   
@@ -205,26 +186,12 @@ function setup() {
   sprite_floor = loadImage('img/floor.svg');
   sprite_title = loadImage('img/click.jpg');
   
+
   
-  sound_point = loadSound('sfx_point.wav');
-  sound_hit = loadSound('sfx_hit.wav');
-  sound_die = loadSound('sfx_die.wav');
-  //sound_wing = loadSound('http://flappybird.netlify.com/data/Assets/sound/sfx_wing.wav');
-  sound_wing = loadSound('sfx_wing.wav');
-  sound_sweetwing = loadSound('sfx_swooshing.wav');
+  font_flappy = loadFont('progresspixel.ttf');
   
   
-  font_flappy = loadFont('flappy-font.ttf');
-  
-  
-  //font_flappy = loadFont('https://flappybird.netlify.com/data/Assets/flappy-font.ttf');
-  
-  //var s=httpGet('data/Assets/flappy-font.ttf','.ttf','',ss);
-  
-  //textFont(font_flappy);
-  
-  //document.getElementById('h').innerHTML = window.location.href;
-  
+ 
   flappy_bird.y = height/2;
   
   try { textFont(font_flappy); } catch(e) {}
@@ -245,10 +212,6 @@ function draw() {
       page_menu();
       break;
   }
-  
-  //FRAMERATE
-  //fill(0);
-  //text(int(frameRate()),20,35);
   
   //EVENT
   mousePressEvent = false;
@@ -285,8 +248,6 @@ function page_game() {
   
   //City
   image(sprite_city, sprite_city.width/2/2 ,height-sprite_city.height/2/2-40,sprite_city.width/2,sprite_city.height/2);
-  //image(sprite_city, sprite_city.width/2/2+sprite_city.width/2-overflowX*0.01 ,height-sprite_city.height/2/2-40,sprite_city.width/2,sprite_city.height/2);
-
   
   //creator
   if(!flappy_bird.falls) {
@@ -478,7 +439,7 @@ var menu_gameover = {
       
       stroke(83,56,71);
       strokeWeight(2);
-      fill(222,215,152);
+      fill(250,164,199);
       rect(0,0,200,200);
       
       
@@ -496,8 +457,8 @@ var menu_gameover = {
         textSize(12);
         noStroke();
         fill(83,56,71);
-        text('score : ',-80,0);
-        text('hightscore : ',-80,30);
+        text('SCORE : ',-80,0);
+        text('HIGHSCORE : ',-80,30);
         
         stroke(0);
         strokeWeight(3);
@@ -545,25 +506,21 @@ function press(txt,x,y,tX,tY) {
       fill(83,56,71);
       rect(x,y+3,textWidth(txt)+25+10,textAscent()+10+10);
       
-      fill(250,117,49);
+      fill(255, 241, 0);
       stroke(255);
       strokeWeight(3);
-      rect(x,y+2,textWidth(txt)+25,textAscent()+10);
+      rect(x,y+2,textWidth(txt),textAscent()+10);
     
-      noStroke();
-      fill(255);
-      text(txt,x,y+2);
     }
     else {
     noStroke();
-    fill(83,56,71);
-    rect(x,y+2,textWidth(txt)+25+10,textAscent()+10+12);
-    
+  
+    // HOVER
     if(this_h) {
-      fill(250,117,49);
+      fill(246, 98, 184);
     }
     else {
-      fill(230,97,29);
+      fill(114, 187, 220);
     }
     stroke(255);
     strokeWeight(3);
@@ -584,49 +541,9 @@ function smoothMove(pos,target,speed) {
 	return pos + (target-pos) * speed;
 }
 
-// js utility
-
-/*
-function preventDefault(e) {
-  e = e || window.event;
-  if (e.preventDefault)
-      e.preventDefault();
-  e.returnValue = false;  
-}
-
-function preventDefaultForScrollKeys(e) {
-    if (keys[e.keyCode]) {
-        preventDefault(e);
-        return false;
-    }
-}
-
-function disableScroll() {
-  if (window.addEventListener) // older FF
-      window.addEventListener('DOMMouseScroll', preventDefault, false);
-  window.onwheel = preventDefault; // modern standard
-  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-  window.ontouchmove  = preventDefault; // mobile
-  document.onkeydown  = preventDefaultForScrollKeys;
-}
-
-function enableScroll() {
-    if (window.removeEventListener)
-        window.removeEventListener('DOMMouseScroll', preventDefault, false);
-    window.onmousewheel = document.onmousewheel = null; 
-    window.onwheel = null; 
-    window.ontouchmove = null;  
-    document.onkeydown = null;  
-}*/
 
 function mobile() { 
- if( navigator.userAgent.match(/Android/i)
- || navigator.userAgent.match(/webOS/i)
- || navigator.userAgent.match(/iPhone/i)
- || navigator.userAgent.match(/iPad/i)
- || navigator.userAgent.match(/iPod/i)
- || navigator.userAgent.match(/BlackBerry/i)
- || navigator.userAgent.match(/Windows Phone/i)
+ if(navigator.userAgent.match(/Windows Phone/i)
  ){
     return true;
   }
